@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+  <title>Ashley Interactive</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/dragula.min.css">
+</head>
+<body>
+
+  <div id="siteContainer">
+    <div id="topMenu">
+      <div>
+        <h1>Morning Routine</h1>
+        <p>Using the icons at the bottom, organise them in the order of your morning routine.</p>
+      </div>
+      <div id="binHolder"></div>
+    </div>
+
+    <div id="iconGridContainer">
+      <div id='startItem' class='gridItem noDrag'><p class="gridText">Start</p></div>
+      <div id='endItem' class='gridItem noDrag'><p class="gridText">End</p></div>
+    </div>
+
+    <div id="bottomBarHolder">
+      <div id="iconCarousel">
+        <div id='customIcon' class='iconHolder'>
+          <img class="iconImage" src='./iconImages/09-hat.svg'>
+          <p class="iconText">Custom</p>
+        </div>
+      </div>
+
+      <div id="submitHolder">
+        <button id='submitBTN'>Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="customIconContainer" style='display: none;'>
+    <h1>Custom Icon</h1>
+    <div id="customIconHolder">
+      <div id="iconCanvasHolder">
+        <div id="customCanvas"></div>
+        <div id="canvasToolBar">
+          <button id="penTool">Pen</button>
+          <button id="eraseTool">Erase</button>
+          <button id="clearTool">Clear</button>
+          <p>Brush Size: <span id='brushSize'>10</span></p>
+          <button id="brushToolMinus">-</button>
+          <button id="brushToolPlus">+</button>
+          <!-- <button id="saveBTN">rm Border</button> -->
+        </div>
+      </div>
+      <input id="iconTextInput" placeholder='Icon Text' maxlength='18'>
+      
+      <div id="customIconMenuBar">
+        <button id="customCancelBTN">cancel</button>
+        <button id="customDoneBTN">done</button>
+        <image id='testIMGOutput' style="width: 10vw; height: 10vw;">
+      </div>
+    </div>
+    
+    
+    
+  </div>
+
+  <div id="submittedContainer">
+
+    <div id="submitTextHolder">
+      <h1>Successfully Submitted!</h1>
+      <p>Refresh to make another.</p>
+    </div>
+
+
+    <div id="previewContainer">
+    </div>
+
+  </div>
+  
+  <!-- <script src="./js/jquery-3.6.0.min.js" type='text/javascript'></script> -->
+  <script src="js/dom-to-image.js" type='text/javascript'></script>
+  <script src="./js/dragula.min.js" type='text/javascript'></script>
+  <script src="./js/p5.min.js" type='text/javascript'></script>
+  <script src="./js/data.js" type='text/javascript'></script>
+  <script src="./js/script.js" type='text/javascript'></script>
+  <!-- <script src="./js/live.js" type='text/javascript'></script> -->
+  
+</body>
+</html>

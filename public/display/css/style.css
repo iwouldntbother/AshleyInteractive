@@ -1,0 +1,38 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#siteContainer {
+  width: 100vw;
+  height: 100vh;
+  background: teal;
+}
+
+#siteContainer h1 {
+  font-size: 5vw;
+  margin: 0;
+  padding: 1vw;
+}
+
+#imageContainer {
+  width: 100vw;
+  padding: 0 1vw;
+  column-width: 15vw;
+  column-gap: 1vw;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: flex-start; */
+}
+
+#imageContainer img {
+  width: 100%;
+  height: auto;
+}
