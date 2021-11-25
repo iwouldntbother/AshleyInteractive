@@ -11,25 +11,40 @@
 </head>
 <body>
 
-  <div id="siteContainer">
+  <div id="siteContainer" class='bgColour'>
     <div id="topMenu">
       <div>
-        <h1>Morning Routine</h1>
-        <p>Using the icons at the bottom, organise them in the order of your morning routine.</p>
+        <h1 class='textColour'>Morning Routine</h1>
+        <p class='textColour'>Using the icons at the bottom, organise them in the order of your morning routine.</p>
       </div>
-      <div id="binHolder"></div>
+      <div id="binHolder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 587.65 644.77">
+            <style>
+              .cls-1,.cls-2{fill:none;stroke-linejoin:round;stroke-width:30px;}
+              .cls-2{stroke-linecap:round;}
+            </style>
+            <g>
+              <rect class="cls-1 strokeTransition" x="15" y="67.03" width="557.65" height="53.86" rx="26.93"/>
+              <path class="cls-1 strokeTransition" d="M253.24,15h81.18a25.76,25.76,0,0,1,25.76,25.76V67a0,0,0,0,1,0,0H227.47a0,0,0,0,1,0,0V40.76A25.76,25.76,0,0,1,253.24,15Z"/>
+              <polygon class="cls-1 strokeTransition" points="466.76 629.77 125.12 629.77 39.38 120.88 548.27 120.88 466.76 629.77"/>
+              <line class="cls-2 strokeTransition" x1="163.24" y1="186.77" x2="197.12" y2="562.76"/>
+              <line class="cls-2 strokeTransition" x1="428.96" y1="186.77" x2="395.08" y2="562.76"/>
+              <line class="cls-2 strokeTransition" x1="293.82" y1="178.76" x2="293.82" y2="564.18"/>
+            </g>
+        </svg>
+      </div>
     </div>
 
     <div id="iconGridContainer">
-      <div id='startItem' class='gridItem noDrag'><p class="gridText">Start</p></div>
-      <div id='endItem' class='gridItem noDrag'><p class="gridText">End</p></div>
+      <div id='startItem' class='gridItem noDrag textColour'><p class="gridText">Start</p></div>
+      <div id='endItem' class='gridItem noDrag textColour'><p class="gridText">End</p></div>
     </div>
 
     <div id="bottomBarHolder">
       <div id="iconCarousel">
         <div id='customIcon' class='iconHolder'>
           <img class="iconImage" src='./iconImages/09-hat.svg'>
-          <p class="iconText">Custom</p>
+          <p class="iconText textColour">Custom</p>
         </div>
       </div>
 
@@ -37,29 +52,71 @@
         <button id='submitBTN'>Submit</button>
       </div>
     </div>
+
+    <div id="lightSwitch">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+      <style type="text/css">
+        .noFill{fill:none;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;}
+        .white{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
+      </style>
+      <g>
+        <path class="strokeTransition noFill" d="M69.9,45.1c0-10.9-8.9-19.8-19.8-19.8s-19.8,8.9-19.8,19.8S40.7,59.5,41,71.4h18.1C59.1,60.1,69.9,57,69.9,45.1
+          z"/>
+        <line class="strokeTransition noFill" x1="42.2" y1="76.4" x2="57.9" y2="76.4"/>
+        <line class="strokeTransition noFill" x1="43.9" y1="81.9" x2="56.2" y2="81.9"/>
+        <line class="strokeTransition noFill" x1="45.5" y1="87.5" x2="54.6" y2="87.5"/>
+        <line class="white" x1="50" y1="13.6" x2="50" y2="19.4"/>
+        <line class="white" x1="67.4" y1="18.9" x2="64.2" y2="23.7"/>
+        <line class="white" x1="78.9" y1="33.1" x2="73.6" y2="35.2"/>
+        <line class="white" x1="80.5" y1="51.2" x2="74.9" y2="50"/>
+        <line class="white" x1="32.6" y1="18.9" x2="35.8" y2="23.7"/>
+        <line class="white" x1="21.1" y1="33.1" x2="26.4" y2="35.2"/>
+        <line class="white" x1="19.5" y1="51.2" x2="25.1" y2="50"/>
+      </g>
+      </svg>
+    </div>
+    <div id="infoBTN">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+      <style type="text/css">
+        .st0{fill:none;}
+      </style>
+      <g>
+        <ellipse transform="matrix(0.7071 -0.7071 0.7071 0.7071 -20.7106 49.9999)" class="st0" cx="50" cy="50" rx="42" ry="42"/>
+        <path class="fillTransition" d="M50,11c21.5,0,39,17.5,39,39S71.5,89,50,89S11,71.5,11,50S28.5,11,50,11 M50,5C25.2,5,5,25.2,5,50s20.1,45,45,45
+          s45-20.1,45-45S74.8,5,50,5L50,5z"/>
+      </g>
+      <g>
+        <path class="fillTransition" d="M45.5,35.2c-1.2-1.1-1.7-2.4-1.7-4c0-1.6,0.6-3,1.7-4.1c1.2-1.1,2.7-1.6,4.5-1.6c1.8,0,3.3,0.5,4.4,1.6
+          c1.2,1.1,1.7,2.4,1.7,4.1c0,1.6-0.6,2.9-1.7,4c-1.2,1.1-2.6,1.6-4.4,1.6C48.2,36.8,46.7,36.3,45.5,35.2z M55.2,41.9V73
+          c0,0.8-0.7,1.5-1.5,1.5h-7.5c-0.8,0-1.5-0.7-1.5-1.5V41.9c0-0.8,0.7-1.5,1.5-1.5h7.5C54.6,40.4,55.2,41,55.2,41.9z"/>
+      </g>
+      </svg>
+    </div>
+
   </div>
 
-  <div id="customIconContainer" style='display: none;'>
-    <h1>Custom Icon</h1>
+  <div id="customIconContainer" class='bgColour' style='display: none;'>
+    <h1 class="textColour">Custom Icon</h1>
     <div id="customIconHolder">
       <div id="iconCanvasHolder">
         <div id="customCanvas"></div>
         <div id="canvasToolBar">
-          <button id="penTool">Pen</button>
-          <button id="eraseTool">Erase</button>
-          <button id="clearTool">Clear</button>
+          <button id="penTool" class="bgColour textColour">Pen</button>
+          <button id="eraseTool" class="bgColour textColour">Erase</button>
+          <button id="clearTool" class="bgColour textColour">Clear</button>
           <p>Brush Size: <span id='brushSize'>10</span></p>
-          <button id="brushToolMinus">-</button>
-          <button id="brushToolPlus">+</button>
+          <button id="brushToolMinus" class="bgColour textColour">-</button>
+          <button id="brushToolPlus" class="bgColour textColour">+</button>
           <!-- <button id="saveBTN">rm Border</button> -->
         </div>
       </div>
-      <input id="iconTextInput" placeholder='Icon Text' maxlength='18'>
+      <input id="iconTextInput" placeholder='Icon Text' maxlength='16'>
       
       <div id="customIconMenuBar">
         <button id="customCancelBTN">cancel</button>
         <button id="customDoneBTN">done</button>
-        <image id='testIMGOutput' style="width: 10vw; height: 10vw;">
       </div>
     </div>
     
@@ -81,7 +138,7 @@
     
   </div>
   
-  <div id="introContainer">
+  <div id="introContainer" class='bgColour'>
     <h1>Morning Routine</h1>
     <p>Enter you name and then diagram your morning routine and publicise it!</p>
     <!-- <label>Name:</label> -->

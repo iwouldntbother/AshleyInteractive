@@ -7,7 +7,8 @@ html, body {
   /* height: calc(var(--vh, 1vh) * 100); */
   height: -webkit-fill-available;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: monospace;
 }
 
 * {
@@ -16,7 +17,29 @@ html, body {
 
 :root {
   touch-action: pan-x pan-y;
-  height: 100% 
+  height: 100%;
+  --text: black;
+  --bg: white;
+}
+
+.textColour {
+  color: var(--text);
+  transition: color 0.5s;
+}
+
+.bgColour {
+  background-color: var(--bg);
+  transition: background-color 0.5s;
+}
+
+.textColourInvert {
+  color: var(--bg);
+  transition: color 0.5s;
+}
+
+.bgColourInvert {
+  background-color: var(--text);
+  transition: background-color 0.5s;
 }
 
 #siteContainer {
@@ -25,16 +48,17 @@ html, body {
   height: calc(var(--vh, 1vh) * 100);
   height: -webkit-fill-available;
   /* background: #f5f6fa; */
-  background: chartreuse;
+  /* background: #34495e; */
   /* position: relative; */
   overflow: hidden;
+  /* color: white; */
 }
 
 #topMenu {
   height: calc(var(--vh, 1vh) * 13);
   width: 100vw;
   padding-left: 2vw;
-  background: plum;
+  /* background: #2c3e50; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -43,7 +67,7 @@ html, body {
 
 #topMenu h1 {
   margin: 0;
-  font-size: 9vw;
+  font-size: 8.5vw;
 }
 
 #topMenu p {
@@ -55,11 +79,25 @@ html, body {
 #binHolder {
   width: 20vw;
   height: 20vw;
-  background: pink;
-  background-image: url('../images/binClosed.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 13vw;
+  /* background: pink; */
+  /* background-image: url('../images/binClosed.svg'); */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: 13vw; */
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#binHolder .gu-transit {
+  display: none;
+}
+
+#binHolder svg {
+  width: 13vw;
+  height: 13vw;
+  pointer-events: none;
 }
 
 #iconGridContainer {
@@ -69,14 +107,17 @@ html, body {
   flex-wrap: wrap;
   justify-content: left;
   align-items: flex-start;
-  background: powderblue;
+  /* background: powderblue; */
 }
 
 .gridItem {
-  width: 20vw;
-  height: 20vw;
-  background: crimson;
-  border: solid 1vw blue;
+  width: 18vw;
+  height: 18vw;
+  /* background: crimson; */
+  margin: 1vw;
+  border: solid 1vw var(--text);
+  transition: border 0.5s;
+  border-radius: 2vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,7 +126,7 @@ html, body {
 }
 
 .gridImage {
-  max-height: 13vw;
+  max-height: 10vw;
   max-width: 13vw;
   width: auto;
   height: auto;
@@ -93,7 +134,9 @@ html, body {
 
 .gridText {
   margin: 0;
-  font-size: 4vw;
+  font-size: 3vw;
+  max-width: 14vw;
+  word-break: break-all;
 }
 
 #bottomBarHolder {
@@ -108,7 +151,7 @@ html, body {
 #iconCarousel {
   width: 100vw;
   /* height: calc(var(--vh, 1vh) * 10); */
-  background: #dcdde1;
+  /* background: #dcdde1; */
   overflow: scroll;
   display: flex;
   flex-direction: row;
@@ -121,7 +164,7 @@ html, body {
   height: 16vw;
   /* width: calc(var(--vh, 1vh) * 10); */
   /* height: calc(var(--vh, 1vh) * 10); */
-  background: cyan;
+  /* background: cyan; */
   border: solid black 1vw;
   flex-shrink: 0;
   display: flex;
@@ -156,12 +199,12 @@ html, body {
   height: calc(var(--vh, 1vh) * 100);
   position: fixed;
   top: 0;
-  background: #bdc3c7;
+  /* background: #bdc3c7; */
   z-index: 10;
 }
 
 #customIconContainer h1 {
-  color: #2c3e50;
+  /* color: #2c3e50; */
   margin: 0;
 }
 
@@ -180,7 +223,7 @@ html, body {
   border: none;
   font-size: 6vw;
   margin: 1.5vw;
-  background: #95a5a6;
+  /* background: #95a5a6; */
   width: 25vw;
   padding: 2.5vw 0;
 }
@@ -203,36 +246,42 @@ html, body {
 #iconCanvasHolder {
   width: 100vw;
   height: 110vw;
-  background: white;
+  /* background: white; */
 }
 
 #customCanvas {
   width: 100vw;
   height: 100vw;
+  background: white;
+  border: solid #555 1vw;
 }
 
 #canvasToolBar {
   width: 100vw;
   height: 10vw;
-  background: blueviolet;
+  /* background: blueviolet; */
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: center;
+  border: solid #555 1vw;
+  border-radius: 0;
+  border-width: 0 0 1vw 0;
 }
 
 #canvasToolBar button {
   height: 10vw;
+  border-radius: 0;
 }
 
 
 #iconTextInput {
   margin-top: calc(var(--vh, 1vh) * 5);
   font-size: 6vw;
-  border: solid white 1vw;
+  border: solid #555 1vw;
   border-radius: 0;
   border-width: 0 0 1vw 0;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   background: none;
 }
 
@@ -259,7 +308,7 @@ html, body {
 #submittedContainer {
   width: 100%;
   height: 100%;
-  background: peru;
+  /* background: peru; */
   position: absolute;
   top: 0;
   /* display: flex; */
@@ -291,7 +340,7 @@ html, body {
 #previewContainer {
   width: 90vw;
   max-height: 80%;
-  background: orange;
+  /* background: orange; */
 }
 
 #previewContainer h1 {
@@ -323,34 +372,77 @@ html, body {
   align-items: center;
   position: absolute;
   top: 0;
-  background: white;
+  /* background: white; */
 }
 
 #introContainer h1 {
-  width: 65vw;
-  font-size: 8vw;
+  width: 70vw;
+  font-size: 7.5vw;
   margin: 0;
 }
 
 #introContainer p {
-  width: 65vw;
+  width: 70vw;
   margin-top: 0;
 }
 
 #introContainer input {
-  width: 65vw;
+  width: 70vw;
   background: none;
   font-size: 6vw;
   border: solid 1vw #2c3e50;
   border-width: 0 0 1vw 0;
+  border-radius: 0;
   margin-top: 5vh;
 }
 
 #introContainer button {
   background: green;
   color: white;
-  width: 65vw;
+  width: 70vw;
   border: none;
   padding: 2vw 0;
   margin-top: 3vw;
+  font-size: 4vw;
+}
+
+
+
+#lightSwitch {
+  width: 10vw;
+  height: 10vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #2c3e50; */
+}
+
+#infoBTN {
+  width: 10vw;
+  height: 10vw;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #2c3e50; */
+}
+
+#infoBTN svg {
+  width: 8vw;
+  height: 8vw;
+}
+
+.fillTransition {
+  transition: fill 0.5s;
+  fill: var(--text);
+}
+
+.strokeTransition {
+  transition: stroke 0.5s;
+  stroke: var(--text);
 }
