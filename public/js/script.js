@@ -11,7 +11,7 @@ window.addEventListener('resize', () => {
 const iconCarouselBuilder = () => {
   for (var i=0; i < data.icons.length; i++) {
     const iconHolderDIV = document.createElement('div');
-    iconHolderDIV.className = 'iconHolder';
+    iconHolderDIV.className = 'iconHolder textColour';
     iconHolderDIV.id = 'iconHolder' + ("00" + i).slice(-2);
     
     const iconIMG = document.createElement('img');
@@ -83,7 +83,7 @@ const addIconToGrid = (iconID) => {
   const endItem = document.getElementById('endItem');
 
   const gridItemDIV = document.createElement('div');
-  gridItemDIV.className = 'gridItem';
+  gridItemDIV.className = 'gridItem textColour';
   gridItemDIV.setAttribute('data-id', iconID);
   gridItemDIV.setAttribute('data-pos', gridArray.length);
 
@@ -249,7 +249,7 @@ const addCustomIconToGrid = (iconCustomIMG, iconCustomText) => {
   const endItem = document.getElementById('endItem');
 
   const gridItemDIV = document.createElement('div');
-  gridItemDIV.className = 'gridItem';
+  gridItemDIV.className = 'gridItem textColour';
   gridItemDIV.setAttribute('data-id', 'custom');
   gridItemDIV.setAttribute('data-pos', gridArray.length);
 
@@ -360,5 +360,36 @@ document.getElementById('nameSubmit').addEventListener('click', () => {
 
 })
 
+
+// Theme Switch
+
+let theme = 'light'
+
+
+const switchLights = () => {
+  let root = document.documentElement;
+
+  if (theme === 'light') {
+    root.style.setProperty('--text', 'white')
+    root.style.setProperty('--bg', '#212529')
+    theme = 'dark'
+  } else {
+    root.style.setProperty('--text', 'black')
+    root.style.setProperty('--bg', 'white')
+    theme = 'light'
+  }
+
+}
+
+
+document.getElementById('lightSwitch').addEventListener('click', () => {
+  switchLights();
+})
+
+document.getElementById('infoBTN').addEventListener('click', () => {
+  console.log('Info????')
+  // openInfoPage();
+})
+
 // TODO:
-// Create REST-API
+// Style
