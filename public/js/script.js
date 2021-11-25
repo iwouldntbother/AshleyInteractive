@@ -277,7 +277,8 @@ const loadCustomiser = () => {
   document.getElementById('customIconContainer').style.display = 'block'
 }
 
-let nameText = 'Will'
+let nameText = 'Ashley'
+let timeStart = new Date();
 
 const previewGen = async () => {
   return await new Promise(res => {
@@ -317,16 +318,47 @@ const submit = async () => {
 
 }
 
+function msToTime(duration) {
+  var milliseconds = Math.floor((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+}
+
+// Send data to server
+
 const postData = (data) => {
+  var submitTime = new Date().toISOString().replace('T', '/').split('.')[0];
+  var timeSpent = msToTime(new Date().getTime() - timeStart.getTime())
   var xhr = new XMLHttpRequest();
   xhr.open('POST', '/newImage', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({'image': data}));
+  xhr.send(JSON.stringify({'image': data, 'name': nameText, 'time': submitTime, 'timeSpent': timeSpent}));
 }
 
 document.getElementById('submitBTN').addEventListener('click', () => {
   submit();
 })
 
+document.getElementById('nameSubmit').addEventListener('click', () => {
+  console.log('Clicked!');
+  const nameInput = document.getElementById('nameInput');
+
+  if (nameInput.value.trim().length === 0) {
+    return;
+  } else {
+    nameText = nameInput.value;
+    document.getElementById('introContainer').remove();
+    console.log('Removed!');
+  }
+
+})
+
 // TODO:
-// Submit
+// Create REST-API
