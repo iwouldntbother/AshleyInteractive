@@ -344,8 +344,8 @@ html, body {
 
 
 #previewContainer {
-  width: 90vw;
-  max-height: 80%;
+  width: 97vw;
+  /* max-height: 80%; */
   border: solid 1vw var(--text);
   transition: border 0.5s;
   /* background: orange; */
@@ -358,14 +358,19 @@ html, body {
 }
 
 #previewContainer #iconGridContainer {
-  width: 90vw;
-  max-height: 108vw;
+  width: 95vw;
+  /* max-height: 108vw; */
 }
 
 #previewContainer .gridItem {
-  max-width: 18vw;
-  max-height: 18vw;
+  width: 18vw;
+  height: 18vw;
+  margin: 0.5vw;
 }
+
+/* #previewContainer .gridImage {
+  max-height: 9vw;
+} */
 
 
 /* Intro */

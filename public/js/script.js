@@ -307,7 +307,8 @@ const submit = async () => {
 
   await previewGen();
 
-  domtoimage.toPng(preview)
+  setTimeout(() => {
+    domtoimage.toPng(preview)
     .then((dataURL) => {
       // console.log(dataURL);
       postData(dataURL);
@@ -315,6 +316,9 @@ const submit = async () => {
     .catch((e) => {
       console.log('DomToImage Error!', e)
     })
+  }, 1000)
+
+  
 
 }
 

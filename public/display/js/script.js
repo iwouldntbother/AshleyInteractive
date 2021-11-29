@@ -9,6 +9,8 @@ var socket = io();
       const imageContainer = document.getElementById('imageContainer');
       let image = document.createElement('img')
       image.src = data;
+      // image.className = 'animate'
+      
 
       imageContainer.prepend(image);
     }
