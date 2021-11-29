@@ -11,7 +11,7 @@ html, body {
 #siteContainer {
   width: 100vw;
   height: 100vh;
-  background: teal;
+  /* background: teal; */
 }
 
 #siteContainer h1 {
@@ -23,16 +23,26 @@ html, body {
 #imageContainer {
   width: 100vw;
   padding: 0 1vw;
-  column-width: 15vw;
+  column-width: 18.8vw;
   column-gap: 1vw;
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: left;
-  align-items: flex-start; */
+  transition: all 0.3s ease-in-out;
 }
 
 #imageContainer img {
   width: 100%;
   height: auto;
+  margin-bottom: 1vw;
+  animation: prepend-animate .3s linear;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes prepend-animate {
+  from {
+    transform: translateY(-5vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
