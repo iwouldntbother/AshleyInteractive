@@ -28,7 +28,27 @@ io.on('connection', (socket) => {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.post('/newImageText', (req, res) => {
+  var tempData = {
+    name: req.body.name,
+    timeStarted: req.body.time,
+    timeSpent: req.body.timeSpent,
+    image: req.body.imageText
+  }
 
+  io.emit('newImageText', req.body.imageText);
+  console.log(req.body.name, req.body.time);
+
+  fs.readFile('data.json', (err, data) => {
+    if (err) throw err;
+    var json = JSON.parse(data)
+    json.push(tempData);
+    fs.writeFile('data.json', JSON.stringify(json), (err) => {
+      if (err) throw err;
+      // console.log('The data was appended successfully!')
+    })
+  })
+})
 
 
 app.post('/newImage', (req, res) => {
