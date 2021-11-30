@@ -231,6 +231,7 @@ document.getElementById('customIconMenuBar').addEventListener('click', (e) => {
   
     case 'customDoneBTN':
       addCustomIconToGrid(canvas.toDataURL(), textInput.value);
+      console.log(canvas.toDataURL());
       customContainer.style.display = 'none';
       break;
   
