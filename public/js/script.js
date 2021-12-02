@@ -406,14 +406,25 @@ const switchLights = () => {
 }
 
 
-document.getElementById('lightSwitch').addEventListener('click', () => {
-  switchLights();
-})
+// document.getElementById('lightSwitch').addEventListener('click', () => {
+//   switchLights();
+// })
 
 document.getElementById('infoBTN').addEventListener('click', () => {
-  console.log('Info????')
-  // openInfoPage();
+  openInfoPage();
 })
+
+document.getElementById('infoCloseBTN').addEventListener('click', () => {
+  closeInfoPage();
+})
+
+const openInfoPage = () => {
+  document.getElementById('infoContainer').style.top = '0vh';
+};
+
+const closeInfoPage = () => {
+  document.getElementById('infoContainer').style.top = '100vh';
+};
 
 // TODO:
 // Style
