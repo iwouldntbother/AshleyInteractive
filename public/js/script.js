@@ -231,6 +231,7 @@ document.getElementById('customIconMenuBar').addEventListener('click', (e) => {
   
     case 'customDoneBTN':
       addCustomIconToGrid(canvas.toDataURL(), textInput.value);
+      console.log(canvas.toDataURL());
       customContainer.style.display = 'none';
       break;
   
@@ -316,10 +317,28 @@ const submit = async () => {
     .catch((e) => {
       console.log('DomToImage Error!', e)
     })
-  }, 1000)
+  }, 5000)
 
-  
+}
 
+
+const submitPureText = async () => {
+  var preview = document.getElementById('previewContainer');
+
+  await previewGen();
+
+  console.log(preview);
+  postDataText(String(preview));
+
+}
+
+const postDataText = (data) => {
+  var submitTime = new Date().toISOString().replace('T', '/').split('.')[0];
+  var timeSpent = msToTime(new Date().getTime() - timeStart.getTime())
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/newImageText', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({'imageText': data, 'name': nameText, 'time': submitTime, 'timeSpent': timeSpent}));
 }
 
 function msToTime(duration) {
@@ -348,6 +367,7 @@ const postData = (data) => {
 
 document.getElementById('submitBTN').addEventListener('click', () => {
   submit();
+  // submitPureText();
 })
 
 document.getElementById('nameSubmit').addEventListener('click', () => {
@@ -386,14 +406,25 @@ const switchLights = () => {
 }
 
 
-document.getElementById('lightSwitch').addEventListener('click', () => {
-  switchLights();
-})
+// document.getElementById('lightSwitch').addEventListener('click', () => {
+//   switchLights();
+// })
 
 document.getElementById('infoBTN').addEventListener('click', () => {
-  console.log('Info????')
-  // openInfoPage();
+  openInfoPage();
 })
+
+document.getElementById('infoCloseBTN').addEventListener('click', () => {
+  closeInfoPage();
+})
+
+const openInfoPage = () => {
+  document.getElementById('infoContainer').style.top = '0vh';
+};
+
+const closeInfoPage = () => {
+  document.getElementById('infoContainer').style.top = '100vh';
+};
 
 // TODO:
 // Style
