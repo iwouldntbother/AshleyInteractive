@@ -489,3 +489,14 @@ html, body {
   background-size: contain;
   border: none;
 }
+
+#privacyDec {
+  padding-top: 5vw;
+  font-size: 2.5vw;
+  color: #555;
+}
+
+#slateLogo {
+  max-width: 70vw;
+  margin-bottom: 5vw;
+}
