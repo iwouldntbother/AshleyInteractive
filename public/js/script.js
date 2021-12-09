@@ -101,7 +101,13 @@ const addIconToGrid = (iconID) => {
 
   grid.insertBefore(gridItemDIV, endItem);
 
-  gridArray.push(Number(iconID));
+  // gridArray.push(Number(iconID));
+
+  gridArray.push({
+    ID: Number(iconID)
+  })
+  
+  console.log(gridArray);
 }
 
 const arrayMove = (arr, oldIndex, newIndex) => {
@@ -268,7 +274,15 @@ const addCustomIconToGrid = (iconCustomIMG, iconCustomText) => {
 
   grid.insertBefore(gridItemDIV, endItem);
 
-  gridArray.push('custom');
+  // gridArray.push('custom');
+
+  gridArray.push({
+    ID: 'custom',
+    IconText: iconCustomText,
+    IconImage: iconCustomIMG
+  })
+
+  console.log(gridArray);
 }
 
 const loadCustomiser = () => {
@@ -322,23 +336,23 @@ const submit = async () => {
 }
 
 
-const submitPureText = async () => {
-  var preview = document.getElementById('previewContainer');
+const submitObjectArray = async () => {
+  // var preview = document.getElementById('previewContainer');
 
   await previewGen();
 
-  console.log(preview);
-  postDataText(String(preview));
+  // console.log(preview);
+  postObjectArray(gridArray);
 
 }
 
-const postDataText = (data) => {
+const postObjectArray = (data) => {
   var submitTime = new Date().toISOString().replace('T', '/').split('.')[0];
   var timeSpent = msToTime(new Date().getTime() - timeStart.getTime())
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/newImageText', true);
+  xhr.open('POST', '/postObjectArray', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({'imageText': data, 'name': nameText, 'time': submitTime, 'timeSpent': timeSpent}));
+  xhr.send(JSON.stringify({'name': nameText, 'time': submitTime, 'timeSpent': timeSpent, 'previewData': JSON.stringify(data)}));
 }
 
 function msToTime(duration) {
@@ -366,12 +380,11 @@ const postData = (data) => {
 }
 
 document.getElementById('submitBTN').addEventListener('click', () => {
-  submit();
-  // submitPureText();
+  // submit();
+  submitObjectArray();
 })
 
 document.getElementById('nameSubmit').addEventListener('click', () => {
-  console.log('Clicked!');
   const nameInput = document.getElementById('nameInput');
 
   if (nameInput.value.trim().length === 0) {
@@ -379,9 +392,22 @@ document.getElementById('nameSubmit').addEventListener('click', () => {
   } else {
     nameText = nameInput.value;
     document.getElementById('introContainer').remove();
-    console.log('Removed!');
   }
 
+})
+
+document.getElementById('nameInput').addEventListener('keydown', (e) => {
+  if (e.code == 'Enter') {
+    const nameInput = document.getElementById('nameInput');
+  
+    if (nameInput.value.trim().length === 0) {
+      return;
+    } else {
+      nameText = nameInput.value;
+      document.getElementById('introContainer').remove();
+    }
+  }
+  
 })
 
 

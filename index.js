@@ -7,7 +7,7 @@ const server = http.createServer(app)
 const io = require("socket.io")(server)
 
 const fs = require('fs')
-
+const fsPromises = fs.promises;
 
 
 io.on('connection', (socket) => {
@@ -28,22 +28,22 @@ io.on('connection', (socket) => {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.post('/newImageText', (req, res) => {
+app.post('/postObjectArray', (req, res) => {
   var tempData = {
     name: req.body.name,
     timeStarted: req.body.time,
     timeSpent: req.body.timeSpent,
-    image: req.body.imageText
+    gridArray: JSON.parse(req.body.previewData)
   }
 
-  io.emit('newImageText', req.body.imageText);
+  io.emit('newObjectArray', JSON.stringify(tempData));
   console.log(req.body.name, req.body.time);
 
-  fs.readFile('data.json', (err, data) => {
+  fsPromises.readFile('data.json', (err, data) => {
     if (err) throw err;
     var json = JSON.parse(data)
     json.push(tempData);
-    fs.writeFile('data.json', JSON.stringify(json), (err) => {
+    fsPromises.writeFile('data.json', JSON.stringify(json), (err) => {
       if (err) throw err;
       // console.log('The data was appended successfully!')
     })
