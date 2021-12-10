@@ -70,7 +70,7 @@ const drake = dragula([document.getElementById('iconGridContainer'), document.ge
   }
 });
 
-var gridArray = []
+let gridArray = [];
 const gridLimit = 30;
 
 const addIconToGrid = (iconID) => {
@@ -123,7 +123,7 @@ const arrayMove = (arr, oldIndex, newIndex) => {
 
 const updateArray = () => {
   for (var i=0; i<gridArray.length; i++) {
-    document.getElementById('iconGridContainer').children[i + 1].setAttribute('data-pos', i);
+    document.getElementById('iconGridContainer').children[i].setAttribute('data-pos', i);
   }
 }
 
@@ -131,15 +131,18 @@ drake.on('drop', (el, target, source, sibling) => {
   const index = [...el.parentElement.children].indexOf(el);
 
   if (target == document.getElementById('binHolder')) {
-    gridArray.splice((index + 1), 1)
+    console.log('Deleted '+gridArray[(index+1)].ID)
+    gridArray.splice((index+1), 1);
     el.remove();
     updateArray();
     return;
   }
 
   // console.log(gridArray);
-  // console.log(el.getAttribute('data-id') + ' was moved from ' + el.getAttribute('data-pos') + ' to ' + (index-1));
-  arrayMove(gridArray, el.getAttribute('data-pos'), (index - 1));
+  console.log(el.getAttribute('data-id') + ' was moved from ' + el.getAttribute('data-pos') + ' to ' + (index));
+  arrayMove(gridArray, el.getAttribute('data-pos'), index);
+  updateArray();
+  // el.setAttribute('data-pos', index);
   // console.log(gridArray);
 })
 
@@ -237,7 +240,7 @@ document.getElementById('customIconMenuBar').addEventListener('click', (e) => {
   
     case 'customDoneBTN':
       addCustomIconToGrid(canvas.toDataURL(), textInput.value);
-      console.log(canvas.toDataURL());
+      // console.log(canvas.toDataURL());
       customContainer.style.display = 'none';
       break;
   
@@ -341,7 +344,8 @@ const submitObjectArray = async () => {
 
   await previewGen();
 
-  // console.log(preview);
+
+  console.log(gridArray);
   postObjectArray(gridArray);
 
 }
@@ -453,4 +457,4 @@ const closeInfoPage = () => {
 };
 
 // TODO:
-// Style
+// Fix remove item
