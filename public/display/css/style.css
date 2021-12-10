@@ -108,5 +108,6 @@ html, body {
 .iconText {
   margin: 0.1vw;
   max-width: 90%;
-  font-size: 0.75vw;
+  font-size: 0.65vw;
+  text-align: center;
 }
